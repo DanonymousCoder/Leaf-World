@@ -17,12 +17,115 @@
 
 header {
     width: 80%;
+}
+
+.page-head {
+    display: flex;
+    flex-direction: column;
+}
+
+.wallet {
+    width: 100%;
     background-color: rgb(228, 158, 53);
     border: 1px solid #FFFFFF;
     padding: 2em;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 2em;
     align-items: center;
     border-radius: 15px;
+    color: #FFFFFF;
+}
+
+.page-head {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    margin-bottom: 3em;
+}
+
+.bonus {
+    background-color: rgb(225, 139, 11);
+    width: 90%;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+main {
+    width: 80%;
+    display: flex;
+}
+
+.mid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4em;
+    width: 100%;
+}
+
+.mid>div {
+    border: 1px solid blue;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.head {
+    font-size: 2rem;
+}
+
+.collect {
+    background-color: rgb(245, 152, 12);
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+label {
+    display: block;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: .75em;
+}
+
+.name,
+.amount {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+form input {
+    padding: 1em 2em;
+}
+
+form button {
+    padding: 1em;
+}
+
+.each {
+    background-color: #F0F0F0;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
 }
