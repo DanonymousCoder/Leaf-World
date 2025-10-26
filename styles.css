@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
 .container {
@@ -50,11 +51,27 @@ header {
     flex-direction: column;
 }
 
+.logo {
+    display: flex;
+    gap: .95em;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+}
+
 h1 {
     font-family: "Waterfall", cursive;
     font-size: 70px;
     padding-bottom: .15em;
     font-weight: 700;
+    color: rgb(207, 130, 13);
+}
+
+.page-head p {
+    color: rgb(207, 130, 13);
+    font-size: 1.5rem;
 }
 
 .wallet {
@@ -71,6 +88,10 @@ h1 {
     color: #FFFFFF;
 }
 
+h3 {
+    font-size: 2rem;
+}
+
 .page-head {
     display: flex;
     flex-direction: column;
@@ -80,11 +101,34 @@ h1 {
     align-items: center;
     padding: 2em;
     margin-bottom: 3em;
-    background-color: rgb(207, 130, 13);
     margin-top: 1em;
     border-radius: 10px;
     padding: 3em;
     color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.balance {
+    display: flex;
+    gap: .5em;
+    align-items: center;
+}
+
+.balance img {
+    height: 40px;
+}
+
+.balance p {
+    font-size: 1.2rem;
+}
+
+.actual-balance {
+    font-size: 1.75rem;
 }
 
 .bonus {
@@ -93,8 +137,13 @@ h1 {
     padding: 1em;
     display: flex;
     justify-content: center;
+    gap: .5em;
     align-items: center;
     border-radius: 10px;
+}
+
+.bonus img {
+    height: 30px;
 }
 
 a {
@@ -130,10 +179,20 @@ main {
 }
 
 .head {
+    display: flex;
+    align-items: center;
+    gap: .75em;
+}
+
+.head p {
     font-size: 2rem;
     font-family: "Waterfall", cursive;
     font-weight: 600;
     letter-spacing: 5.5;
+}
+
+.head img {
+    height: 40px;
 }
 
 .collect {
@@ -155,7 +214,7 @@ label {
 form {
     display: flex;
     flex-direction: column;
-    gap: .75em;
+    gap: 1.25em;
 }
 
 .name,
@@ -190,9 +249,17 @@ form button:focus {
 
 .each {
     background-color: #F0F0F0;
-    padding: 1em;
+    padding: 1em 1.5em;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border-radius: 40px;
+    border: 1px solid rgb(224, 137, 7);
+}
+
+.medal {
+    height: 50px;
+    width: 50px;
 }
 
 .bottom {
@@ -200,6 +267,9 @@ form button:focus {
     background-color: rgb(214, 131, 21);
     border-radius: 10px;
     padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 5em;
 }
 
 .shop {
@@ -210,6 +280,15 @@ form button:focus {
 
 .shop .top p {
     color: #FFFFFF;
+    font-size: 1.2rem;
+}
+
+.shop .head p {
+    font-size: 4rem;
+}
+
+.shop .head img {
+    height: 60px;
 }
 
 .shop .shop-items {
@@ -237,6 +316,15 @@ form button:focus {
     width: 80%;
 }
 
+h5 {
+    font-size: 1.2rem;
+}
+
+.shop .box p,
+h5 {
+    color: #FFFFFF;
+}
+
 .shop .box img {
     height: 80px;
     width: 80px;
@@ -247,4 +335,48 @@ form button:focus {
     width: 100%;
     padding: 1em;
     border-radius: 10px;
+}
+
+
+.inventories {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.inventories .head p {
+    font-size: 4rem;
+    color: #FFFFFF;
+}
+
+.inventories .head img {
+    height: 60px;
+}
+
+.inven-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.inventory {
+    background-color: #FFFFFF;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 2em 3em;
+}
+
+.inventory-name {
+    font-size: 2.5rem;
+    font-family: "Waterfall", cursive;
+}
+
+.quantity {
+    font-size: 1.2rem;
+}
+
+.quantity span {
+    font-size: 1.5rem;
 }
