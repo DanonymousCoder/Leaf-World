@@ -2,13 +2,21 @@ let actualBalance = document.getElementById("actual-balance");
 let bonus = document.getElementById("get-bonus");
 let farmCoins = document.getElementById("farm-coins");
 const popUp = document.getElementById("pop-up");
-const earnedToday = document.getElementById("earned-today")
+const earnedToday = document.getElementById("earned-today");
+
+const userName_1 = document.getElementById("username-1");
+const userName_2 = document.getElementById("username-2");
+const userName_3 = document.getElementById("username-3");
 
 let balance = 0;
 let balanceToday = 0;
-let actualBalanceInt = parseInt(balance);
+let actualBalanceInt = 0;
 const dailyBonus = 50;
 
+const storedBalance = localStorage.getItem("actualBalanceInt");
+if (storedBalance !== null) {
+    actualBalanceInt = parseInt(storedBalance, 10) || 0;
+}
 
 bonus.addEventListener("click", () => {
     console.log(actualBalanceInt);
@@ -22,6 +30,7 @@ bonus.addEventListener("click", () => {
         actualBalance.textContent = actualBalanceInt;
 
         balanceToday += dailyBonus;
+        earnedToday.textContent = balanceToday;
 
         popUp.innerHTML = `<p>You got ${dailyBonus} leaves!</p>`;
 
@@ -32,6 +41,7 @@ bonus.addEventListener("click", () => {
 
         localStorage.setItem(lastClickDateKey, new Date().toDateString());
         localStorage.setItem("actualBalanceInt", JSON.stringify(actualBalanceInt));
+        localStorage.setItem("balanceToday", JSON.stringify(balanceToday));
 
     } else {
         popUp.innerHTML = `<p>You've already claimed today's bonus leaf(s).</p>`
@@ -71,17 +81,22 @@ function checkClicks() {
         return true;
     }
 
-    const today = new Date();
-    const storedDate = new Date(lastClickDate);
+    const storedDate = new Date(lastClickDate).toDateString();
+    const todayStr = new Date().toDateString();
 
-    const comparedYear = today.getFullYear() !== storedDate.getFullYear();
-    const comparedMonth = today.getMonth() !== storedDate.getMonth();
-    const comparedDay = today.getDay() !== storedDate.getDay();
-
-    return comparedYear || comparedMonth || comparedDay;
+    return storedDate !== todayStr;
 }
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    localStorage.getitem("actualBalanceInt", JSON.stringify(actualBalanceInt));
-})
+    const storedBalance = localStorage.getItem("actualBalanceInt");
+
+    if (storedBalance !== null) {
+        actualBalanceInt = parseInt(storedBalance, 10) || 0;
+    } else {
+        const domBalance = parseInt(actualBalance.textContent, 10);
+        if (!Number.isNaN(domBalance)) actualBalanceInt = domBalance;
+    }
+
+    actualBalance.textContent = actualBalanceInt;
+});

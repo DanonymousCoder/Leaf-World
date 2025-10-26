@@ -50,6 +50,13 @@ header {
     flex-direction: column;
 }
 
+h1 {
+    font-family: "Waterfall", cursive;
+    font-size: 70px;
+    padding-bottom: .15em;
+    font-weight: 700;
+}
+
 .wallet {
     width: 100%;
     background-color: rgb(228, 158, 53);
@@ -124,6 +131,9 @@ main {
 
 .head {
     font-size: 2rem;
+    font-family: "Waterfall", cursive;
+    font-weight: 600;
+    letter-spacing: 5.5;
 }
 
 .collect {
