@@ -2,8 +2,10 @@ let actualBalance = document.getElementById("actual-balance");
 let bonus = document.getElementById("get-bonus");
 let farmCoins = document.getElementById("farm-coins");
 const popUp = document.getElementById("pop-up");
+const earnedToday = document.getElementById("earned-today")
 
 let balance = 0;
+let balanceToday = 0;
 let actualBalanceInt = parseInt(balance);
 const dailyBonus = 50;
 
@@ -19,6 +21,8 @@ bonus.addEventListener("click", () => {
         actualBalanceInt += dailyBonus;
         actualBalance.textContent = actualBalanceInt;
 
+        balanceToday += dailyBonus;
+
         popUp.innerHTML = `<p>You got ${dailyBonus} leaves!</p>`;
 
         popUp.classList.add("active");
@@ -26,8 +30,11 @@ bonus.addEventListener("click", () => {
             popUp.classList.remove("active");
         }, 3000);
 
+        localStorage.setItem(lastClickDateKey, new Date().toDateString());
+        localStorage.setItem("actualBalanceInt", JSON.stringify(actualBalanceInt));
+
     } else {
-        popUp.innerHTML = `<p>You've already claimed the day bonus leaf(s).</p>`
+        popUp.innerHTML = `<p>You've already claimed today's bonus leaf(s).</p>`
 
         popUp.classList.add("active");
         setTimeout(function () {
@@ -42,12 +49,17 @@ farmCoins.addEventListener("click", () => {
     actualBalanceInt += randomNumber;
     actualBalance.textContent = actualBalanceInt;
 
-    popUp.innerHTML = `<p>You got ${actualBalanceInt} leaves.</p>`
+    balanceToday += randomNumber;
+    earnedToday.textContent = balanceToday;
+
+    popUp.innerHTML = `<p>You got ${randomNumber} leaves.</p>`
 
     popUp.classList.add("active");
     setTimeout(function () {
         popUp.classList.remove("active");
     }, 3000)
+
+    localStorage.setItem("actualBalanceInt", JSON.stringify(actualBalanceInt))
 })
 
 const lastClickDateKey = 'lastButtonClickDate';
@@ -56,7 +68,7 @@ function checkClicks() {
     const lastClickDate = localStorage.getItem(lastClickDateKey);
 
     if (!lastClickDate) {
-        return true
+        return true;
     }
 
     const today = new Date();
@@ -64,7 +76,12 @@ function checkClicks() {
 
     const comparedYear = today.getFullYear() !== storedDate.getFullYear();
     const comparedMonth = today.getMonth() !== storedDate.getMonth();
-    const comparedDay = today.getDay() !== storedDate.getDate();
+    const comparedDay = today.getDay() !== storedDate.getDay();
 
     return comparedYear || comparedMonth || comparedDay;
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    localStorage.getitem("actualBalanceInt", JSON.stringify(actualBalanceInt));
+})

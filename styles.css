@@ -118,6 +118,10 @@ main {
     gap: 1em;
 }
 
+.mid .earn {
+    gap: 3em;
+}
+
 .head {
     font-size: 2rem;
 }
@@ -152,11 +156,26 @@ form {
 }
 
 form input {
-    padding: 1em 2em;
+    padding: 1em;
+    background: transparent;
+    border-radius: 10px;
+    border: 1px solid rgb(224, 137, 7);
+    outline: none;
 }
 
 form button {
     padding: 1em;
+    background-color: rgb(224, 137, 7);
+    border: none;
+    color: #FFFFFF;
+    border-radius: 10px;
+}
+
+form button:hover,
+form button:focus {
+    background: transparent;
+    border: 1px solid rgb(224, 137, 7);
+    color: rgb(224, 137, 7);
 }
 
 .each {
