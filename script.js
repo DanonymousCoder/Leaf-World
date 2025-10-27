@@ -8,6 +8,29 @@ const userName_1 = document.getElementById("username-1");
 const userName_2 = document.getElementById("username-2");
 const userName_3 = document.getElementById("username-3");
 
+const inventoryBody = document.querySelector(".inven-bottom");
+
+const buy1 = document.getElementById("buy-1");
+
+buy1.addEventListener("click", () => {
+    const name = document.querySelector("#box-1 h5").textContent;
+    const price = document.querySelector("#box-1 .price");
+
+
+    const div = document.createElement("div");
+    div.classList.add("inventory");
+
+    const nameTag = document.createElement("p");
+    nameTag.textContent = name;
+    nameTag.classList.add("inventory-name");
+    div.append(nameTag);
+
+    const quantity = document.createElement("p");
+    quantity.texContent = `x1`;
+
+    inventoryBody.append(div);
+})
+
 let balance = 0;
 let balanceToday = 0;
 let actualBalanceInt = 0;
