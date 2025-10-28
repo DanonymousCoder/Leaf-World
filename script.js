@@ -12,6 +12,8 @@ const inventoryBody = document.querySelector(".inven-bottom");
 
 const buy1 = document.getElementById("buy-1");
 
+let count = 0;
+
 buy1.addEventListener("click", () => {
     const name = document.querySelector("#box-1 h5").textContent;
     const price = document.querySelector("#box-1 .price");
@@ -23,12 +25,19 @@ buy1.addEventListener("click", () => {
     const nameTag = document.createElement("p");
     nameTag.textContent = name;
     nameTag.classList.add("inventory-name");
-    div.append(nameTag);
+    div.appendChild(nameTag);
 
+    count += 1;
     const quantity = document.createElement("p");
-    quantity.texContent = `x1`;
+    quantity.textContent = `x`;
+    quantity.classList.add("quantity");
+    nameTag.appendChild(quantity);
 
-    inventoryBody.append(div);
+    const quantityNum = document.createElement("span");
+    quantityNum.textContent = count;
+    quantity.appendChild(quantityNum);
+
+    inventoryBody.appendChild(div);
 })
 
 let balance = 0;
