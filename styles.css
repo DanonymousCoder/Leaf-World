@@ -29,6 +29,12 @@
     z-index: 1000;
 }
 
+.fancy {
+    font-family: "Waterfall", cursive;
+    font-size: 3rem;
+    font-weight: 500;
+}
+
 .active {
     display: unset;
 }
@@ -162,7 +168,7 @@ main {
 .mid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 4em;
+    gap: 2em;
     width: 100%;
 }
 
@@ -380,4 +386,21 @@ h5 {
 
 .quantity span {
     font-size: 1.5rem;
+}
+
+
+@media (max-width: 1200px) {
+    .mid {
+        gap: .85em;
+    }
+}
+
+@media (max-width: 1400px) {
+    .mid {
+        gap: .85em;
+    }
+
+    .shop .shop-items {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
